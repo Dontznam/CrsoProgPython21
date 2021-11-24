@@ -1,11 +1,14 @@
 # gvrvjigwb
-c = "si"
+c = ["si", "s",]
+f = ["no", "n",]
+rip = "si"
 
-def isnotvalid(v):
-    if v <= 0:    
-        print("Le grandezze del poligono devono essere positive!")
+def isvalidint(v):
+    try:    
+        int(v)
         return 1
-    else: 
+    except: 
+        print("Le grandezze del poligono devono essere positive!")
         return 0
 
 def area_rettangolo(w, h):
@@ -20,9 +23,9 @@ def area_triangolo(w, h):
 
 def calcolo_cerchio():
     print("Inserisci dati conosciuti: ")
-    r = int(input("Raggio: ") or 0)
-    A = int(input("Area: ") or 0)
-    C = int(input("Perimetro: ") or 0)
+    r = int(input("Raggio: "))
+    A = int(input("Area: "))
+    C = int(input("Perimetro: "))
     print("che calcolo vuoi effettuare: ")
     print("1. Area")
     print("2. Raggio")
@@ -53,13 +56,18 @@ def calcola_aree():
     print("1. Rettangolo")
     print("2. Triangolo")
     print("3. Cerchio")
-    f = int(input(": "))
-    if f <= 2:
-        a = int(input("Larghezza: "))
-        l = int(input("Altezza: "))
-        while isnotvalid(a) or isnotvalid(l):
-            a = int(input("Larghezza: "))
-            l = int(input("Altezza: "))
+    try:
+        f = int(input(": "))
+    except:
+        f = 0
+    if f <= 2 and f > 0:
+        a = input("Larghezza: ")
+        l = input("Altezza: ")
+        while isvalidint(a) == 0 or isvalidint(l) == 0:
+            a = input("Larghezza: ")
+            l = input("Altezza: ")
+        a = int(a)
+        l = int(l)
         if f == 1:
                 area = area_rettangolo(a, l)
         elif f == 2:
@@ -73,11 +81,12 @@ def calcola_aree():
 
 
 calcola_aree()
-while c == "si":
-    c = input("Calcola un altra area? ")
-    if c == "si" or c == "Si":
+while rip in c:
+    rip = input("Calcola un altra area(s/n)? ")
+    rip.lower()
+    if rip in c:
         calcola_aree()
-    if c == "no" or c == "No":
+    if rip in f:
         break
     
     
