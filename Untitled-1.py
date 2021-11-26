@@ -62,7 +62,7 @@ def cf():
     if g > 31 and g < 1:
         g = int(input("giorno:"))
     
-    
+
     la = " ABCDEHLMPRST"
     cd = ""
     cd = cd + omen(c)
@@ -74,10 +74,13 @@ def cf():
  #                l = l + 1
     cd = cd + a[2:4]
     cd = cd + la[m]
-    if se in sef:
+    if se == "f":
         cd = cd + str((g + 40))
     else:
-        cd = cd + str(g)
+        if g > 10:
+            cd = cd + str(g)
+        else:
+            cd = cd + "0" + str(g)
     cd = cd.upper()        
     print(cd)
 
