@@ -54,13 +54,25 @@ def cf():
         print("inserire anno completo(es 1999)")
         a = input("anno: ")
 
-    m = int(input("mese: "))
-    if m > 12 and m < 0:
-        print("Mese non valido, vanno da 1(gen) a 12(dic)")
+    try:
         m = int(input("mese: "))
-    g = int(input("giorno:"))
-    if g > 31 and g < 1:
+    except:
+        m = 20
+    while m > 12 and m < 0:
+        print("Mese non valido, vanno da 1(gen) a 12(dic)")
+        try:
+            m = int(input("mese: "))
+        except:
+            m = 20
+    try:
         g = int(input("giorno:"))
+    except:
+        m = 32
+    while g > 31 and g < 1:
+        try:
+         g = int(input("giorno:"))
+        except:
+         g = 32
     
 
     la = " ABCDEHLMPRST"
