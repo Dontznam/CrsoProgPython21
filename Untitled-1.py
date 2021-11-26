@@ -45,9 +45,7 @@ def cf():
     c = input("cognome: ")
     n = input("nome: ")
     se = ""
-    sef = ["f", "femmina", "donna", ]
-    sem = ["m", "maschio", "uomo", ]
-    while (se not in sef) or (se not in sem):
+    while se != m or se  != n:
         se = input("inserire(m/f): ")
         se.lower()
     
