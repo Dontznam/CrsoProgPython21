@@ -62,6 +62,7 @@ def cf():
     if g > 31 and g < 1:
         g = int(input("giorno:"))
     
+    
     la = " ABCDEHLMPRST"
     cd = ""
     cd = cd + omen(c)
