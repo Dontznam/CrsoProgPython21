@@ -91,7 +91,7 @@ def cf():
     if se == "f":
         cd = cd + str((g + 40))
     else:
-        if g > 10:
+        if g >= 10:
             cd = cd + str(g)
         else:
             cd = cd + "0" + str(g)
