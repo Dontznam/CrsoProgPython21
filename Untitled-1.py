@@ -45,9 +45,11 @@ def cf():
     c = input("cognome: ")
     n = input("nome: ")
     se = ""
-    while se != m or se  != n:
+    sed = ["m", "f"]
+    m = ""
+    while se not in sed:
         se = input("inserire(m/f): ")
-        se.lower()
+#        se.lower()
     
     a = input("anno: ")
     if len(a) < 4:
