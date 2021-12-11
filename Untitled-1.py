@@ -45,25 +45,38 @@ def cf():
     c = input("cognome: ")
     n = input("nome: ")
     se = ""
-    sef = ["f", "femmina", "donna", ]
-    sem = ["m", "maschio", "uomo", ]
-    while (se not in sef) or (se not in sem):
+    sed = ["m", "f"]
+    m = ""
+    while se not in sed:
         se = input("inserire(m/f): ")
-        se.lower()
+#        se.lower()
     
     a = input("anno: ")
     if len(a) < 4:
         print("inserire anno completo(es 1999)")
         a = input("anno: ")
 
-    m = int(input("mese: "))
-    if m > 12 and m < 0:
-        print("Mese non valido, vanno da 1(gen) a 12(dic)")
+    try:
         m = int(input("mese: "))
-    g = int(input("giorno:"))
-    if g > 31 and g < 1:
+    except:
+        m = 20
+    while m > 12 and m < 0:
+        print("Mese non valido, vanno da 1(gen) a 12(dic)")
+        try:
+            m = int(input("mese: "))
+        except:
+            m = 20
+    try:
         g = int(input("giorno:"))
+    except:
+        m = 32
+    while g > 31 and g < 1:
+        try:
+         g = int(input("giorno:"))
+        except:
+         g = 32
     
+
     la = " ABCDEHLMPRST"
     cd = ""
     cd = cd + omen(c)
@@ -75,10 +88,13 @@ def cf():
  #                l = l + 1
     cd = cd + a[2:4]
     cd = cd + la[m]
-    if se in sef:
+    if se == "f":
         cd = cd + str((g + 40))
     else:
-        cd = cd + str(g)
+        if g >= 10:
+            cd = cd + str(g)
+        else:
+            cd = cd + "0" + str(g)
     cd = cd.upper()        
     print(cd)
 
