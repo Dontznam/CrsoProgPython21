@@ -23,12 +23,12 @@ def aggiungi_elemento(age):
             n = input("Nome: ")
             c = input("Cognome: ")
             d = input("Email: ")
-            pw = input("Passwd: ")
+            t = input("Telefono: ")
 
-
+            idelst = [n, c, t]
             ide[c] = n 
 
-            age[d] = ide
+            age[d] = idelst
             ide = {}
             i = i + 1
         return age
@@ -69,6 +69,12 @@ def svuota_dizionario(nomef):
     filages = open(nomef, "w")
     filages.close()
 
+def salva_modifiche(age):
+    ages = json.dumps(age)
+    filages = open("agenda.dat", "w")
+    filages.write(ages)
+    filages.close()
+
 try:
     filaget = open("agenda.dat", "r")
     agestr = filaget.read()
@@ -102,10 +108,13 @@ while ask != 0:
         mostra_elementi(age)
     elif ask == "2":
         age = aggiungi_elemento(age)
+        salva_modifiche(age)
     elif ask == "3":
         age = modifica_elemento(age)
+        salva_modifiche(age)
     elif ask == "4":
         age = cancella_elemento(age)
+        salva_modifiche(age)
     elif ask == "5":
         try:
             ask2 = input("Sei sicuro(si/n)? ")
@@ -115,11 +124,6 @@ while ask != 0:
             svuota_dizionario("agenda.dat")
         else:
             print("Operazione annullata")
-    
-        ages = json.dumps(age)
-        filages = open("agenda.dat", "w")
-        filages.write(ages)
-        filages.close()
     else:
         exit()
 lista = []
