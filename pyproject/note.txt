@@ -1,0 +1,11 @@
+pip install django cms
+pip install djangocms-installer
+
+djangocms -f -p ./[nomecartella] [nomeprogetto]
+
+
+
+
+
+https://django-guardian.readthedocs.io/en/stable/
+note di utilizzo django

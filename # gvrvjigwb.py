@@ -13,7 +13,8 @@ def isvalidint(v):
 
 def area_rettangolo(w, h):
     risultato = 0
-    risultato = w*h
+    if w > 0 and h > 0:
+        risultato = w*h
     return risultato
 
 def area_triangolo(w, h):
@@ -23,9 +24,18 @@ def area_triangolo(w, h):
 
 def calcolo_cerchio():
     print("Inserisci dati conosciuti: ")
-    r = int(input("Raggio: "))
-    A = int(input("Area: "))
-    C = int(input("Perimetro: "))
+    r = input("Raggio: ")
+    if isvalidint(r) == 0:
+        r = 0
+    A = input("Area: ")
+    if isvalidint(A) == 0:
+        A = 0
+    C = input("Perimetro: ")
+    if isvalidint(C) == 0:
+        C = 0
+    r = int(r)
+    A = int(A)
+    C = int(C)
     print("che calcolo vuoi effettuare: ")
     print("1. Area")
     print("2. Raggio")
