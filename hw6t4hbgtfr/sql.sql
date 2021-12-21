@@ -121,3 +121,5 @@ INSERT INTO public.prenotazioni(
 	data, idta, idme)
 	VALUES ( '13/09/2013', 5, 4);	
 	
+DELETE FROM public.prenotazioni
+	WHERE prenotazioni.data == '07/06/2013';
