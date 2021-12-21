@@ -1,6 +1,6 @@
 import psycopg2
 import flask
-from flask import request, jsonify, Flask
+from flask import request, jsonify, Flask, render_template
 
 
 app = Flask(__name__)
@@ -86,6 +86,18 @@ def rap_pren_data():
         dic.append(linea)
     return jsonify(dic)
 
+@app.route("/v1/prenotazione/inspen",methods=['POST', 'GET'])
+def ins_pren():
+    agdata = request.args['data']
+    agtavolo = request.args['tavolo']
+    agmenu = request.args['menu']
+    agcom = "INSERT INTO public.prenotazioni( data, idta, idme)	VALUES ( '"+ agdata +"', "+ agtavolo +", "+ agmenu +");"
+    con = psycopg2.connect(database="postgres", user="postgres", password="gungadin", host="127.0.0.1", port="5432")
+    cur = con.cursor()
+    cur.execute(agcom)
+
+    con.commit()
+    con.close()
 
 
 app.run()
